@@ -103,6 +103,14 @@
                 </a>
             </div>
 
+            <div class="nav-item">
+                <a href="{{ route('admin-gestion.index') }}"
+                  class="nav-link {{ request()->routeIs('admin-gestion.*') ? 'active' : '' }}">
+                  <span class="nav-icon"><i class="fa-solid fa-user-shield"></i></span>
+                  Administradores
+                </a>
+            </div>
+
         </nav>
 
         {{-- Footer del sidebar --}}

@@ -114,7 +114,10 @@
 </div>{{-- /.login-page --}}
 
 <script>
-    // Toggle mostrar/ocultar contraseña
+
+
+
+    // contraseña
     const togglePw   = document.getElementById('togglePw');
     const pwInput    = document.getElementById('password');
     const toggleIcon = document.getElementById('togglePwIcon');

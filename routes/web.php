@@ -9,6 +9,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\HistoriaClinicaController;
 use App\Http\Controllers\TratamientoController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\AdminGestionController;
 use App\Http\Controllers\ReporteController;
 
 Route::get('/', function () {
@@ -23,6 +24,7 @@ Route::resource('citas', CitaController::class);
 Route::resource('historias', HistoriaClinicaController::class);
 Route::resource('tratamientos', TratamientoController::class);
 Route::resource('pagos', PagoController::class);
+Route::resource('admin-gestion', AdminGestionController::class);
 
 // Login del administrador
 // Login (público)
@@ -30,6 +32,7 @@ Route::get('/login',  [AdministradorController::class, 'showLogin'])->name('admi
 Route::post('/login', [AdministradorController::class, 'login'])->name('admin.login.post');
 Route::post('/logout',[AdministradorController::class, 'logout'])->name('logout');
 Route::get('reportes', [ReporteController::class, 'index'])->name('reportes.index');
+
 
 // Rutas protegidas (requieren auth del guard 'administrador')
 Route::middleware(['auth:administrador'])->group(function () {

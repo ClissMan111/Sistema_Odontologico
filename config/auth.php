@@ -40,7 +40,7 @@ return [
         'driver'   => 'session',
         'provider' => 'users',
     ],
-    'administrador' => [          // ← agrega esto
+    'administrador' => [      
         'driver'   => 'session',
         'provider' => 'administradores',
     ],
@@ -51,7 +51,7 @@ return [
         'driver' => 'eloquent',
         'model'  => App\Models\User::class,
     ],
-    'administradores' => [        // ← agrega esto
+    'administradores' => [       
         'driver' => 'eloquent',
         'model'  => App\Models\Administrador::class,
     ],

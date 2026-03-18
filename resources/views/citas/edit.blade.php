@@ -137,25 +137,6 @@
                         @enderror
                     </div>
 
-                    {{-- Administrador --}}
-                    <div class="form-group">
-                        <label class="form-label" for="administrador_id">
-                            <i class="fa-solid fa-user-shield" style="color:var(--blue);margin-right:5px;"></i>
-                            Administrador
-                        </label>
-                        <select id="administrador_id" name="administrador_id"
-                            class="form-control {{ $errors->has('administrador_id') ? 'is-invalid' : '' }}" required>
-                            @foreach($administradores as $admin)
-                                <option value="{{ $admin->id }}"
-                                    {{ old('administrador_id', $cita->administrador_id) == $admin->id ? 'selected' : '' }}>
-                                    {{ $admin->nombre }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('administrador_id')
-                            <div class="form-error"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
                 </div>
 

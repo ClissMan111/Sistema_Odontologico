@@ -27,22 +27,21 @@ class CitaController extends Controller
     }
 
     // GUARDAR
-    public function store(Request $request)
-    {
-        $request->validate([
-            'fecha'            => 'required|date',
-            'hora'             => 'required|string|max:255',
-            'estado'           => 'required|string|max:255',
-            'paciente_id'      => 'required|exists:pacientes,id',
-            'odontologo_id'    => 'required|exists:odontologos,id',
-            'administrador_id' => 'required|exists:administradores,id',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'fecha'         => 'required|date',
+        'hora'          => 'required|string|max:255',
+        'estado'        => 'required|string|max:255',
+        'paciente_id'   => 'required|exists:pacientes,id',
+        'odontologo_id' => 'required|exists:odontologos,id',
+    ]);
 
-        Cita::create($request->all());
+    Cita::create($request->only(['fecha', 'hora', 'estado', 'paciente_id', 'odontologo_id']));
 
-        return redirect()->route('citas.index')
-            ->with('success', 'Cita registrada correctamente.');
-    }
+    return redirect()->route('citas.index')
+        ->with('success', 'Cita registrada correctamente.');
+}
 
     // FORM EDITAR
     public function edit(Cita $cita)
@@ -55,21 +54,20 @@ class CitaController extends Controller
 
     // ACTUALIZAR
     public function update(Request $request, Cita $cita)
-    {
-        $request->validate([
-            'fecha'            => 'required|date',
-            'hora'             => 'required|string|max:255',
-            'estado'           => 'required|string|max:255',
-            'paciente_id'      => 'required|exists:pacientes,id',
-            'odontologo_id'    => 'required|exists:odontologos,id',
-            'administrador_id' => 'required|exists:administradores,id',
-        ]);
+{
+    $request->validate([
+        'fecha'         => 'required|date',
+        'hora'          => 'required|string|max:255',
+        'estado'        => 'required|string|max:255',
+        'paciente_id'   => 'required|exists:pacientes,id',
+        'odontologo_id' => 'required|exists:odontologos,id',
+    ]);
 
-        $cita->update($request->all());
+    $cita->update($request->only(['fecha', 'hora', 'estado', 'paciente_id', 'odontologo_id']));
 
-        return redirect()->route('citas.index')
-            ->with('success', 'Cita actualizada correctamente.');
-    }
+    return redirect()->route('citas.index')
+        ->with('success', 'Cita actualizada correctamente.');
+}
 
     // ELIMINAR
     public function destroy(Cita $cita)
