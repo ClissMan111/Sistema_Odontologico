@@ -24,7 +24,9 @@ Route::resource('citas', CitaController::class);
 Route::resource('historias', HistoriaClinicaController::class);
 Route::resource('tratamientos', TratamientoController::class);
 Route::resource('pagos', PagoController::class);
-Route::resource('admin-gestion', AdminGestionController::class);
+Route::resource('admin-gestion', AdminGestionController::class)
+    ->parameters(['admin-gestion' => 'administrador']);
+
 
 // Login del administrador
 // Login (público)
