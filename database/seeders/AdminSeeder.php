@@ -13,10 +13,5 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('123456'),
         ]);
 
-        Administrador::create([
-            'nombre'   => 'Admin Secundario',
-            'email'    => 'admin2@odonto.com',
-            'password' => bcrypt('123456'),
-        ]);
     }
 }
